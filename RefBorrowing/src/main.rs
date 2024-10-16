@@ -29,7 +29,9 @@ fn main() {
 
     let i = '中';
     let i1 = &i;
-    // need ref so that i2 is borrowed
+    // need ref so that i2 is borrowed rather then moved
+    // https://doc.rust-lang.org/std/keyword.ref.html
+    // that link talks about the difference between & and ref
     let ref i2 = i;
     assert_eq!(*i1, *i2);
     assert_eq!(get_addr(i1), get_addr(i2));
